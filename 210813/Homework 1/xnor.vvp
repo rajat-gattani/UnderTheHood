@@ -1,0 +1,67 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_00000227385a9b60 .scope module, "tb" "tb" 2 11;
+ .timescale -9 -12;
+v00000227386353f0_0 .var "A", 0 0;
+v00000227385ab920_0 .var "B", 0 0;
+v00000227386781e0_0 .net "C", 0 0, L_0000022738678ba0;  1 drivers
+S_0000022738634fe0 .scope module, "xor1" "xnorMod" 2 16, 2 2 0, S_00000227385a9b60;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /OUTPUT 1 "C";
+L_00000227385a6b50 .functor NOT 1, v00000227385ab920_0, C4<0>, C4<0>, C4<0>;
+L_00000227385a6cb0 .functor AND 1, v00000227386353f0_0, L_00000227385a6b50, C4<1>, C4<1>;
+L_00000227385ab9c0 .functor NOT 1, v00000227386353f0_0, C4<0>, C4<0>, C4<0>;
+L_00000227385aba30 .functor AND 1, L_00000227385ab9c0, v00000227385ab920_0, C4<1>, C4<1>;
+L_0000022738678e40 .functor OR 1, L_00000227385a6cb0, L_00000227385aba30, C4<0>, C4<0>;
+L_0000022738678ba0 .functor NOT 1, L_0000022738678e40, C4<0>, C4<0>, C4<0>;
+v00000227385a6e10_0 .net "A", 0 0, v00000227386353f0_0;  1 drivers
+v00000227385a6720_0 .net "B", 0 0, v00000227385ab920_0;  1 drivers
+v00000227385a9cf0_0 .net "C", 0 0, L_0000022738678ba0;  alias, 1 drivers
+v00000227385a9d90_0 .net *"_ivl_0", 0 0, L_00000227385a6b50;  1 drivers
+v0000022738635170_0 .net *"_ivl_2", 0 0, L_00000227385a6cb0;  1 drivers
+v0000022738635210_0 .net *"_ivl_4", 0 0, L_00000227385ab9c0;  1 drivers
+v00000227386352b0_0 .net *"_ivl_6", 0 0, L_00000227385aba30;  1 drivers
+v0000022738635350_0 .net *"_ivl_8", 0 0, L_0000022738678e40;  1 drivers
+    .scope S_00000227385a9b60;
+T_0 ;
+    %vpi_call 2 19 "$monitor", "A = %b, B = %b, C = %b", v00000227386353f0_0, v00000227385ab920_0, v00000227386781e0_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000227386353f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000227385ab920_0, 0, 1;
+    %delay 2000, 0;
+    %delay 15000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000227386353f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000227385ab920_0, 0, 1;
+    %delay 2000, 0;
+    %delay 15000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000227386353f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000227385ab920_0, 0, 1;
+    %delay 2000, 0;
+    %delay 15000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000227386353f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000227385ab920_0, 0, 1;
+    %delay 2000, 0;
+    %delay 15000, 0;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "xnor.v";
