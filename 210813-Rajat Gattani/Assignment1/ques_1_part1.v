@@ -2,8 +2,8 @@ module one_bit_adder (
     input a,b,c,c_in,
     output r, c_out
 );
-    assign r=(a|b|c|~c_in)&(a|b|~c|~c_in)&(a|~b|c|c_in)&(a|~b|~c|c_in)&(~a|b|c|~c_in)&(~a|b|~c|~c_in);
-    assign c_out=(c_in|a|b|~c)&(c_in|a|~b|~c)&(c_in|~a|b|c)&(c_in|~a|~b|c)&(~c_in|a|b|~c)&(~c_in|a|~b|~c);
+    assign r= (a&b) | (b&c_in) | (~b& ~c_in);
+    assign c_out= (a&c) | (~a&~c) | (a&c_in);
 endmodule
 
 module tb;
