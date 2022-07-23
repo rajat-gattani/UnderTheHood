@@ -14,7 +14,12 @@ module eight_bit_adder (
 );
     reg[7:0] A,B,C;
 
-    always @(A or B or C) begin
+    // 00 corresponds to A-B-C
+    // 01 corresponds to A-B+C
+    // 10 corresponds to A+B-C
+    // 11 corresponds to A+B+C
+
+    always @(a or b or c) begin
         if(opcode==2'b00) begin
             B = ~b+1;
             C = ~c+1;
