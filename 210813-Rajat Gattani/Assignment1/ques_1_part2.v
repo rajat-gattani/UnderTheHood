@@ -14,6 +14,7 @@ module eight_bit_adder (
 );
     reg[7:0] A,B,C;
 
+
     // 00 corresponds to -A+B+C
     // 01 corresponds to A-B+C
     // 10 corresponds to A+B-C

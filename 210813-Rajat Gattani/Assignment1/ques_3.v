@@ -15,11 +15,11 @@ module fsm(input [4:0] inp, output reg [1:0] out,s);
     always @(inp) begin
         if (state[1]==1'b1&&state[0]==1'b0) begin
             if(inp>26) begin
-                next_state[0] = 1'b0;
+                next_state[0] = 1'b1;
                 next_state[1] = 1'b0;
             end
             else if(inp>20)begin
-                next_state[0] = 1'b1;
+                next_state[0] = 1'b0;
                 next_state[1] = 1'b0;
             end    
         end 
